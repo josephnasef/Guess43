@@ -1,0 +1,11 @@
+<Project>
+  <!-- Inherit root settings, then relax rules that conflict with test conventions. -->
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <!-- CA1707: underscores in test method names are the standard xUnit convention. -->
+    <!-- CA1711: xUnit collection marker classes conventionally end in 'Collection'. -->
+    <NoWarn>$(NoWarn);CA1707;CA1711</NoWarn>
+  </PropertyGroup>
+</Project>
