@@ -1,0 +1,23 @@
+# Build artifacts
+**/bin/
+**/obj/
+**/node_modules/
+**/dist/
+**/.vite/
+
+# Git / CI
+.git/
+.github/
+.vs/
+.idea/
+
+# Docs & local
+docs/
+*.md
+!README.md
+.env
+.env.*
+coverage/
+TestResults/
+playwright-report/
+test-results/

@@ -1,0 +1,31 @@
+# .NET
+bin/
+obj/
+*.user
+artifacts/
+coverage/
+*.trx
+TestResults/
+[Cc]overage*.xml
+*.coverage
+*.received.*
+
+# Frontend
+node_modules/
+dist/
+.vite/
+*.local
+playwright-report/
+test-results/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# IDE / OS
+.vs/
+.idea/
+.history/
+.DS_Store
+Thumbs.db

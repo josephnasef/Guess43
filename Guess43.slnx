@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/backend/">
+    <Project Path="src/backend/Guess43.Api/Guess43.Api.csproj" />
+    <Project Path="src/backend/Guess43.Application/Guess43.Application.csproj" />
+    <Project Path="src/backend/Guess43.Domain/Guess43.Domain.csproj" />
+    <Project Path="src/backend/Guess43.Infrastructure/Guess43.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Guess43.Application.Tests/Guess43.Application.Tests.csproj" />
+    <Project Path="tests/Guess43.ArchitectureTests/Guess43.ArchitectureTests.csproj" />
+    <Project Path="tests/Guess43.Domain.Tests/Guess43.Domain.Tests.csproj" />
+    <Project Path="tests/Guess43.IntegrationTests/Guess43.IntegrationTests.csproj" />
+  </Folder>
+</Solution>
