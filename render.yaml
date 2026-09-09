@@ -1,0 +1,34 @@
+# Render blueprint for Guess43 — a single same-origin Docker web service + managed PostgreSQL.
+# Secrets (JWT signing key) are set in the Render dashboard, never committed here.
+services:
+  - type: web
+    name: guess43
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    healthCheckPath: /health/ready
+    autoDeploy: true
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ASPNETCORE_URLS
+        value: http://+:8080
+      - key: Database__MigrateOnStartup
+        value: 'true'
+      - key: Jwt__Issuer
+        value: guess43
+      - key: Jwt__Audience
+        value: guess43-client
+      - key: Jwt__SigningKey
+        sync: false # set manually in the Render dashboard (secret)
+      - key: ConnectionStrings__Postgres
+        fromDatabase:
+          name: guess43-db
+          property: connectionString
+
+databases:
+  - name: guess43-db
+    databaseName: guess43
+    user: guess43
+    plan: free
