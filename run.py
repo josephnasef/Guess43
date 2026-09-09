@@ -90,9 +90,17 @@ def spawn(scope: str, args: list[str], cwd: Path, env: dict[str, str] | None = N
 def start_database() -> None:
     docker = require("docker")
     log("db", "starting PostgreSQL via docker compose...")
+    # Force the container credentials to match the backend's Development connection
+    # string (appsettings.Development.json), regardless of any local .env values.
+    db_env = {
+        "POSTGRES_DB": "guess43",
+        "POSTGRES_USER": "guess43",
+        "POSTGRES_PASSWORD": "guess43_dev",
+    }
     result = subprocess.run(
         [docker, "compose", "up", "-d", "db"],
         cwd=str(ROOT),
+        env={**os.environ, **db_env},
         text=True,
         capture_output=True,
     )
